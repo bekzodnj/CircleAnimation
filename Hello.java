@@ -32,7 +32,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
-
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -45,12 +44,12 @@ public class Hello extends Application {
        
      Pane pane = new Pane();
      
+     //Creating orange rectangle   
      Rectangle rectangle = new Rectangle (0, 0, 25, 25);
      rectangle.setFill(Color.ORANGE);
      
-     
+     //Creating main circle 
      Circle circle = new Circle(125, 100, 60);
-     
      circle.setFill(Color.WHITE);
      circle.setStroke(Color.BLACK);
      
@@ -62,19 +61,21 @@ public class Hello extends Application {
      pt.setPath(circle);
      pt.setNode(rectangle);
      
+     // Animation`s direction
      pt.setOrientation(
      PathTransition.OrientationType.ORTHOGONAL_TO_TANGENT);
      pt.setCycleCount(Timeline.INDEFINITE);
      pt.setAutoReverse(true);
      pt.play(); 
      
-     
+     //when mouse Pressed -> pause
      circle.setOnMousePressed(e -> pt.pause());
-     
+        
+     //when Released -> continue animation
      circle.setOnMouseReleased(e -> pt.play());
      
      Scene scene = new Scene(pane, 250, 200);
-     primaryStage.setTitle("PathTransitionDemo");
+     primaryStage.setTitle("Path Transition");
      
      primaryStage.setScene(scene);
      primaryStage.show();
