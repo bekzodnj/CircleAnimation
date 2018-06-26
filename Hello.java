@@ -40,7 +40,6 @@ public class Hello extends Application {
     
     @Override
     public void start(Stage primaryStage) {
-        
        
      Pane pane = new Pane();
      
@@ -56,6 +55,7 @@ public class Hello extends Application {
      pane.getChildren().add(circle);
      pane.getChildren().add(rectangle);
      
+     //Direction of animation path
      PathTransition pt = new PathTransition();
      pt.setDuration(Duration.millis(4000));
      pt.setPath(circle);
